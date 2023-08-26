@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Head from 'next/head'
-import Image from 'next/image'
 import HomeBannerSlider from "../components/sliders/HomeBannerSlider";
 import CategoryHome from '../components/ecommerce/CategoryHome';
 import FeaturedProduct from '../components/home/FeaturedProduct';
@@ -22,6 +21,7 @@ export default function Home({bannerdata,homecategorydata, featuredproductdata,n
     <div>
       <Head>
       <title>Loose Diamond Supplier, Manufacturer & Exporter from India | JBA</title>
+      <link rel="icon" href="/favicon.ico" sizes="any" />
         <meta name="description" content="Loose Diamond Supplier, Manufacturer & Exporter from India" />
       </Head>
 
