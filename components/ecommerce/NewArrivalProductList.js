@@ -15,18 +15,21 @@ const NewArrivalProductList = ({productName,productSlug,productprice,sku,frontIm
        
           <div className="product-img product-img-zoom">
             <Link href={`/products/${productSlug}`}>
-              
-                <img
-                  className="default-img"
-                  src={frontImg}
-                  alt=""
-                />
-                <img
-                  className="hover-img"
-                  src={backImg}
-                  alt=""
-                />
-               
+            <Image
+            className="default-img"
+            src={frontImg}
+            alt={productName}
+            width={365}
+            height={365}
+            />
+           <Image
+            className="hover-img"
+            src={backImg}
+            alt={productName}
+            width={365}
+            height={365}
+            />
+                 
             </Link>
           </div>
         </div>

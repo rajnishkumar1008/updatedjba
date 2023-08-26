@@ -1,11 +1,12 @@
 import { useState } from "react";
+import Image from "next/image";
 import SwiperCore, { Navigation, Thumbs } from "swiper";
 import "swiper/css/thumbs";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 SwiperCore.use([Navigation, Thumbs]);
 
-const ThumbSlider = ({ imageOne,imageTwo }) => {
+const ThumbSlider = ({ imageOne,imageTwo,productName }) => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
     return (
@@ -23,12 +24,23 @@ const ThumbSlider = ({ imageOne,imageTwo }) => {
             >
            
                     <SwiperSlide>
-                        <img src={imageOne} alt="img" />
+                    <Image
+                    src={imageOne}
+                    alt={productName}
+                    width={504}
+                    height={504}
+                    />
                          
                     </SwiperSlide>
                     {imageTwo.length >=0 &&  (
                       <SwiperSlide>
-                      <img src={imageTwo} alt="img" />
+                        <Image
+                        src={imageTwo}
+                        alt={productName}
+                        width={504}
+                        height={504}
+                     />
+                         
                       </SwiperSlide>
                     )}
                    

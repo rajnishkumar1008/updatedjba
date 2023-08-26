@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React from "react";
 import SwiperCore, { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import RelatedProductList from "./RelatedProductList";

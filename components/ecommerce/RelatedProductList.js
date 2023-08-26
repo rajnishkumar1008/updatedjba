@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { useState, useRef} from "react";
- 
+ import Image from "next/image";
 const RelatedProductList = ({productName,productSlug,productprice,sku,frontImg,backImg}) => {  
     const ref=useRef();  
   return (
@@ -15,16 +15,20 @@ const RelatedProductList = ({productName,productSlug,productprice,sku,frontImg,b
        
           <div className="product-img product-img-zoom">
             <a href={`/products/${productSlug}`}>
-                <img
-                  className="default-img"
-                  src={frontImg}
-                  alt=""
-                />
-                <img
-                  className="hover-img"
-                  src={backImg}
-                  alt=""
-                />
+            <Image
+            className="default-img"
+            src={frontImg}
+            alt={productName}
+            width={365}
+            height={365}
+            />
+            <Image
+            className="hover-img"
+            src={backImg}
+            alt={productName}
+            width={365}
+            height={365}
+            />
               </a>
               </div>
        

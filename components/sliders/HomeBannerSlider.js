@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import SwiperCore, { Navigation, Pagination } from "swiper";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -22,7 +23,14 @@ const HomeBannerSlider = ({banner}) => {
                 {banner && banner.map((item, i) => (
                 <SwiperSlide key={i}>
                     <div className="single-hero-slider single-animation-wrap">
-                        <Link href=""> <img src={item.banner_url} alt="img" /></Link>
+                        <Link href="/products">
+                        <Image
+                        src={item.banner_url}
+                        alt="Jews By Annu |Jewelery"
+                        width={1495}
+                        height={503}
+                      />
+                     </Link>
                     </div>
                 </SwiperSlide>
                  ))}

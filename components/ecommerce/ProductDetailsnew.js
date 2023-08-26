@@ -71,7 +71,7 @@ const ProductDetailsnew = ({productData,relatedproduct,productreview,args,purity
                     </span>
 
                     <div className="product-image-slider">
-                      <ThumbSlider imageOne={product_front_image} imageTwo={product_back_image}/>
+                      <ThumbSlider imageOne={product_front_image} imageTwo={product_back_image} productName={product_name}/>
                     </div>
                   </div>
                 </div>
@@ -99,57 +99,9 @@ const ProductDetailsnew = ({productData,relatedproduct,productreview,args,purity
                         <p> {product_short_description} </p>
                       </div>
                     </div>
-                    {/* <div className="jab-product-option">
-                      <form>
-                        <div className="mb-3">
-                          <label htmlFor="Size" className="form-label">
-                            Select Size
-                          </label>
-                          <select
-                            className="form-select"
-                            aria-label="Default select example"
-                          >
-                            <option selected>select options</option>
-                            <option value="1">14(54.0mm)-Only 2 Left</option>
-                            <option value="2">21 (60.9 mm)-Only 1 Left</option>
-                            <option value="3">14(54.0mm)-Only 2 Left</option>
-                          </select>
-                        </div>
-                        <div className="mb-3">
-                          <label htmlFor="Size" className="form-label">
-                            Expected Delivery
-                          </label>
-                          <div className="input-group mb-3">
-                            <input
-                              type="tel"
-                              className="form-control"
-                              placeholder="Enter Pincode"
-                            />
-                            <button
-                              className="btn btn-outline-secondary"
-                              type="button"
-                              id="button-addon2"
-                            >
-                              Check
-                            </button>
-                            <div className="pin-hide-show">
-                              <a href="#">
-                                <span className="top">
-                                  Free Delivery by 25th Aug
-                                </span>
-                                <span className="info">
-                                  For Early Delivery.<a>Contact Us</a>
-                                </span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </form>
-                    </div> */}
+                    
                     <div className="jab-product-sigle-price">
                       <span className="orginal-price">₹ {product_price}</span>
-                      {/* <span className="dis-price">₹ 3320</span> */}
-                      {/* <div className="offer-exp">Offer Expire in 1 day</div> */}
                     </div>
                     <div className="add-t-cart">
                       <a href="tel:1234567890">
