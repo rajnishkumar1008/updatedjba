@@ -107,7 +107,7 @@ const Header = ({ toggleClick,categogry
                             <div className="jba-header-action-right d-block d-lg-none">
                                 <div className="jab-header-pic">
                                     <div className="jba-header-action-icon">
-                                        <Link href="/shop-wishlist">
+                                        <Link href="">
                                             
                                                 <img
                                                     alt="Evara"
@@ -121,7 +121,7 @@ const Header = ({ toggleClick,categogry
                                     </div>
 
                                     <div className="jba-header-action-icon">
-                                        <Link href="/shop-cart" className="mini-cart-icon">
+                                        <Link href="" className="mini-cart-icon">
                                             
                                                 <img
                                                     alt="Evara"
@@ -203,10 +203,10 @@ const Header = ({ toggleClick,categogry
                                                     </h4>
                                                 </div>
                                                 <div className="shopping-cart-button">
-                                                    <Link href="/shop-cart">
+                                                    <Link href="">
                                                        View cart 
                                                     </Link>
-                                                    <Link href="/shop-checkout">
+                                                    <Link href="">
                                                        Checkout 
                                                     </Link>
                                                 </div>

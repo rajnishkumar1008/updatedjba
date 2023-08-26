@@ -59,17 +59,7 @@ const MobileMenu = ({ isToggled, toggleClick }) => {
                         </div>
                     </div>
                     <div className="mobile-header-content-area">
-                        <div className="mobile-search search-style-3 mobile-header-border">
-                            <form action="#">
-                                <input
-                                    type="text"
-                                    placeholder="Search for items…"
-                                />
-                                <button type="submit">
-                                    <i className="fi-rs-search"></i>
-                                </button>
-                            </form>
-                        </div>
+                       
                         <div className="mobile-menu-wrap mobile-header-border">
                             <div className="main-categori-wrap mobile-header-border">
                                 <Link href="#" className="categori-button-active-2">
@@ -89,7 +79,7 @@ const MobileMenu = ({ isToggled, toggleClick }) => {
                                             </Link>
                                         </li>
                                         <li>
-                                           <Link href="/shop-grid-right">
+                                           <Link href="">
                                                  
                                                     <i className="evara-font-tshirt"></i>
                                                     Men's Clothing
@@ -98,7 +88,7 @@ const MobileMenu = ({ isToggled, toggleClick }) => {
                                         </li>
                                         <li>
                                             {" "}
-                                           <Link href="/shop-grid-right">
+                                           <Link href="">
                                                  
                                                     <i className="evara-font-smartphone"></i>{" "}
                                                     Cellphones
@@ -106,7 +96,7 @@ const MobileMenu = ({ isToggled, toggleClick }) => {
                                             </Link>
                                         </li>
                                         <li>
-                                           <Link href="/shop-grid-right">
+                                           <Link href="">
                                                 
                                                     <i className="evara-font-desktop"></i>
                                                     Computer & Office
@@ -114,7 +104,7 @@ const MobileMenu = ({ isToggled, toggleClick }) => {
                                             </Link>
                                         </li>
                                         <li>
-                                           <Link href="/shop-grid-right">
+                                           <Link href="">
                                                
                                                     <i className="evara-font-cpu"></i>
                                                     Consumer Electronics
@@ -122,7 +112,7 @@ const MobileMenu = ({ isToggled, toggleClick }) => {
                                             </Link>
                                         </li>
                                         <li>
-                                           <Link href="/shop-grid-right">
+                                           <Link href="">
                                                  
                                                     <i className="evara-font-home"></i>
                                                     Home & Garden
@@ -130,7 +120,7 @@ const MobileMenu = ({ isToggled, toggleClick }) => {
                                             </Link>
                                         </li>
                                         <li>
-                                           <Link href="/shop-grid-right">
+                                           <Link href="">
                                                  
                                                     <i className="evara-font-high-heels"></i>
                                                     Shoes
@@ -138,7 +128,7 @@ const MobileMenu = ({ isToggled, toggleClick }) => {
                                             </Link>
                                         </li>
                                         <li>
-                                           <Link href="/shop-grid-right">
+                                           <Link href="">
                                                  
                                                     <i className="evara-font-teddy-bear"></i>
                                                     Mother & Kids
@@ -146,7 +136,7 @@ const MobileMenu = ({ isToggled, toggleClick }) => {
                                             </Link>
                                         </li>
                                         <li>
-                                           <Link href="/shop-grid-right">
+                                           <Link href="">
                                                  
                                                     <i className="evara-font-kite"></i>
                                                     Outdoor fun
@@ -172,7 +162,7 @@ const MobileMenu = ({ isToggled, toggleClick }) => {
                                         >
                                             <i className="fi-rs-angle-small-down"></i>
                                         </span>
-                                        <Link href="/index">
+                                        <Link href="">
                                             Home 
                                         </Link>
                                         <ul
@@ -183,7 +173,7 @@ const MobileMenu = ({ isToggled, toggleClick }) => {
                                             }
                                         >
                                             <li>
-                                                <Link href="/index">
+                                                <Link href="">
                                                      Home 1 
                                                 </Link>
                                             </li>
@@ -209,12 +199,12 @@ const MobileMenu = ({ isToggled, toggleClick }) => {
                         </div>
                         <div className="mobile-header-info-wrap mobile-header-border">
                             <div className="single-mobile-header-info mt-30">
-                                <Link href="/page-contact">
+                                <Link href="">
                                      Our location  
                                 </Link>
                             </div>
                             <div className="single-mobile-header-info">
-                                <Link href="/page-login-register">
+                                <Link href="">
                                      Log In / Sign Up  
                                 </Link>
                             </div>
