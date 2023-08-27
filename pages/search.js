@@ -5,6 +5,7 @@ import SingleProductShop from "../components/ecommerce/SingleProductShop";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import ProductFilters from "./products/ProductFilters";
+import AppURL from "./api/AppUrl";
 const Index = (response={data}) => {
   const router =useRouter();
   const [categoriesFilter, setCategoriesFilter] = useState(null);
@@ -13,6 +14,46 @@ const Index = (response={data}) => {
   const [volume, setVolume] = useState([0,0]);
   const volumeHandler = (value) => {
     setVolume(value);
+  };
+  const [featured, setFeatured] = useState([]);
+  const [pricehighlow, setPriceHighLow] = useState([]);
+  const [pricelowhigh, setPriceLowHigh] = useState([]);
+  const [newest, setNewest] = useState([]);
+  const FeaturedHandler = (e) => {
+    const { name } = e.target
+    if (featured.includes(name)) {
+      const newArr = featured.filter((like) => like !== name);
+      setFeatured(newArr);
+    } else {
+      setFeatured((p) => [...p, name]);
+    }
+  };
+  const HighLowHandler = (e) => {
+    const { name } = e.target
+    if (pricehighlow.includes(name)) {
+      const newArr = pricehighlow.filter((like) => like !== name);
+      setPriceHighLow(newArr);
+    } else {
+      setPriceHighLow((p) => [...p, name]);
+    }
+  };
+  const LowHighHandler = (e) => {
+    const { name } = e.target
+    if (pricelowhigh.includes(name)) {
+      const newArr = pricelowhigh.filter((like) => like !== name);
+      setPriceLowHigh(newArr);
+    } else {
+      setPriceLowHigh((p) => [...p, name]);
+    }
+  };
+  const NewestHandler = (e) => {
+    const { name } = e.target;
+    if (newest.includes(name)) {
+      const newArr = newest.filter((like) => like !== name);
+      setNewest(newArr);
+    } else {
+      setNewest((p) => [...p, name]);
+    }
   };
   const categoryHandler = (e) => {
     const { name } = e.target;
@@ -89,11 +130,40 @@ const Index = (response={data}) => {
             categoryQuery.length > 0
               ? categoryQuery.map((value) => value + "&").join("")
               : "";
-               
+              const feturedproduct =
+              featured.length > 0 ?
+                featured.map((value) => {
+                  return `featuredlist=${value}`;
+                })
+                : [];
+            const pricehigh =
+              pricehighlow.length > 0
+                ? pricehighlow.map((value) => {
+                  return `pricehightolow=${value}`;
+                })
+                : [];
+            const pricelow =
+              pricelowhigh.length > 0
+                ? pricelowhigh.map((value) => {
+                  return `pricelowtohigh=${value}`;
+                })
+                : [];
+            const newestproducts =
+              newest.length > 0
+                ? newest.map((value) => {
+                  return `productnew=${value}`;
+                })
+                : [];
               axios.request({
                 timeout: 2000,
                 method: "GET",
-                url: `${process.env.NEXT_PUBLIC_BACKEND_URL}api/search/product?${categoryString && categoryString}min_price=${volume[0]}&max_price=${volume[1]}`
+                url: `${AppURL.searchproduct}?$${
+                  categoryString && categoryString
+                  }${feturedproduct && feturedproduct}${
+                     pricehigh && pricehigh
+                  }${pricelow && pricelow}${
+                  newestproducts && newestproducts
+                 }`
               })
               .then((res) => {
                 res.data && res.data.products.length > 0
@@ -167,7 +237,12 @@ const Index = (response={data}) => {
             </div>
             <div className="col-xl-3 col-lg-4">
               <ProductFilters categories={categoriesFilter} 
-               categoryHandler={categoryHandler}
+              categoryHandler={categoryHandler}
+              FeaturedHandler={FeaturedHandler}
+              HighLowHandler={HighLowHandler}
+              LowHighHandler={LowHighHandler}
+              NewestHandler={NewestHandler}
+              
                volume={volume}
                  priceMax={
                     resProducts &&
@@ -199,7 +274,7 @@ export default Index;
 export const getServerSideProps = async (context) => {
     try {
         const search = context.query.q;
-      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}api/search/product?search_key=${search}`);
+      const res = await fetch(`${AppURL.searchproduct}?search_key=${search}`);
       const data = await res.json();
       return {
         props: {

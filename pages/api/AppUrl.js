@@ -8,5 +8,6 @@ export class AppURL  {
     static productbycategory = this.BaseURL+"/category/";
     static categoryfilterlistproduct = this.BaseURL+"/featured/product";
     static productlistfilter = this.BaseURL+"/search/product";
+    static searchproduct = this.BaseURL+"/search/product"
 }
 export default AppURL;
