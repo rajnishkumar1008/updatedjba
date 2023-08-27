@@ -6,7 +6,9 @@ const nextConfig = {
   images: {
     domains: [`${hostname}`]
   },
-   
+  env:{
+    NEXT_PUBLIC_BACKEND_URL:'https://neweb.mailgemsroot.com'
+  }
 }
 
 module.exports = nextConfig

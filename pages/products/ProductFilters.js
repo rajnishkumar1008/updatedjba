@@ -34,7 +34,7 @@ export default function ProductFilters({categories,
                 ))}
                   </div>
                 </div>
-                <div className="filter-list-sec">
+                {/* <div className="filter-list-sec">
                     <div className="col-lg-9">
                     <h4>Price</h4>
                   {volume && (
@@ -48,7 +48,7 @@ export default function ProductFilters({categories,
           )}
                     
                     </div>
-                </div>
+                </div> */}
                 <div className="h-600">
                <div className="filter-list-sec">
                   <h4>Sort By</h4>

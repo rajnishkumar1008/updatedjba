@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import axios from "@/lib/axios";
-import { RiCloseCircleLine } from "react-icons/ri";
+import axios from "axios";
 import SingleProductShop from "../../components/ecommerce/SingleProductShop";
 import Head from "next/head";
 import ProductFilters from "./ProductFilters";
+import AppURL from "../api/AppUrl";
 const Index = (response = { data }) => {
   const [categoriesFilter, setCategoriesFilter] = useState(null);
   const [resProducts, setProducts] = useState(null);
@@ -155,10 +155,16 @@ const Index = (response = { data }) => {
               return `productnew=${value}`;
             })
             : [];
-           axios .get(`${process.env.NEXT_PUBLIC_BACKEND_URL}api/search/product?${categoryString && categoryString}`
-                     )
+           axios .get(`${AppURL.productlistfilter}?${
+            categoryString && categoryString
+            }${feturedproduct && feturedproduct}${
+               pricehigh && pricehigh
+            }${pricelow && pricelow}${
+            newestproducts && newestproducts
+           }`
+           )
                 .then((res) => {
-                console.log(res.data);
+                setProducts(res.data.products);
                 })
                 .catch((err) => {
                 console.log(err);
@@ -205,26 +211,7 @@ const Index = (response = { data }) => {
             <div className="row">
               <div className="col-lg-12">
                 <div className="jab-tags-filter">
-                  {/* <ul className="jab-tags-list">
-                    <li className="hover-up">
-                      <a>
-                        Rings <RiCloseCircleLine />
-                      </a>
-                    </li>
-                    <li className="hover-up">
-                      <a>
-                        ₹ 5000 - ₹ 10000 <RiCloseCircleLine />
-                      </a>
-                    </li>
-                    <li className="hover-up">
-                      <a>
-                        ₹ 5000 - ₹ 10000 <RiCloseCircleLine />
-                      </a>
-                    </li>
-                    <li className="hover-up last">
-                      <a>Clear All</a>
-                    </li>
-                  </ul> */}
+                  
                 </div>
               </div>
             </div>
@@ -286,7 +273,7 @@ export default Index;
 export const getServerSideProps = async (context) => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}api/all/products`
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/all/products`
     );
     const data = await res.json();
     return {

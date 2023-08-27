@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "@/lib/axios";
+import axios from "axios";
 import { useState } from "react";
 import { RiCloseCircleLine } from "react-icons/ri";
 import SingleProductShop from "../../components/ecommerce/SingleProductShop";
@@ -71,7 +71,7 @@ const Slug = ({ slug, data }) => {
               return `productnew=${value}`;
             })
             : [];
-        axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}api/featured/product?${pricehigh && pricehigh}${pricelow && pricelow}${newestproduct && newestproduct}category=${slug.charAt(0).toUpperCase() + slug.slice(1).split("-").join(" ")}`)
+        axios.get(`${AppURL.categoryfilterlistproduct}?${pricehigh && pricehigh}${pricelow && pricelow}${newestproduct && newestproduct}category=${slug.charAt(0).toUpperCase() + slug.slice(1).split("-").join(" ")}`)
           .then((res) => {
             setProducts(res.data);
           })
