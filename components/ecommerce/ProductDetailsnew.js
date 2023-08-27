@@ -121,7 +121,7 @@ const ProductDetailsnew = ({productData,relatedproduct,productreview,args,purity
                       >
                         Get a Quote
                       </button>
-                      <Modal isOpen={modal} toggle={Modaltoggles} {...args} size="lg">
+                      <Modal isOpen={modal} toggle={Modaltoggles} {...args} size="md">
                       <ModalHeader toggle={Modaltoggles}>Request Callback</ModalHeader>
                       <ModalBody>
                         <p id="successMsg"></p>
