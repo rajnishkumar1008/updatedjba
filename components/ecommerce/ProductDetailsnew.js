@@ -38,17 +38,23 @@ const ProductDetailsnew = ({productData,relatedproduct,productreview,args,purity
 
   const router = useRouter();
   const sendEmail = (e) => {
+    document.getElementById("sbt_btn").value = "Please Wait...";
+    document.getElementById("sbt_btn").disabled = true;
     e.preventDefault();
     emailjs.sendForm('service_h57c39c', 'template_fye9r67', form.current, 'x0is57RTi-I26GcCh')
       .then((result) => {
           console.log(result.text);
           document.getElementById("requestForm").reset();
-          document.getElementById("successMsg").innerHTML = "Your requirement Sent Successfully ,We get in touch as soon as possible!";
-          setTimeout(
-            function(){
-                window.location = "/" 
-            },
-        3000);
+          
+
+          document.getElementById("successMsg").innerHTML = "Your requirement has been Sent Successfully ,We get in touch as soon as possible!";
+          document.getElementById("sbt_btn").value ="Get a Quote";
+          document.getElementById("sbt_btn").disabled = false;
+        //   setTimeout(
+        //     function(){
+        //         window.location = "/" 
+        //     },
+        // 3000);
       }, (error) => {
           console.log(error.text);
       });
@@ -168,7 +174,7 @@ const ProductDetailsnew = ({productData,relatedproduct,productreview,args,purity
                         <textarea  rows="4" cols="400" className="form-control" name="message" placeholder="Message" required/>
                        </div>
                        <div className="check-out mt-4">
-                      <input type="submit" className="btn btn-primary" value="Get a Quote" />
+                      <input type="submit" className="btn btn-primary" id="sbt_btn" value="Get a Quote" />
                       </div>
                       </form>
                       </ModalBody>

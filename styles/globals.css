@@ -11025,3 +11025,13 @@ font-size: 14px;
 .check-out .btn{
   background: #d66c6c;
 }
+.btn-primary{
+  border: transparent;
+}
+.btn-primary:hover{
+  border:transparent;
+  background: #d66c6c;
+}
+#successMsg{
+  color: #29A56C;
+}
