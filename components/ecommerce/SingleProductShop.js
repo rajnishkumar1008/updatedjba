@@ -65,7 +65,7 @@ const SingleProductShop = ({ productName, productSlug, sku, productPrice, produc
 
           <div className="product-card-bottom">
             <div className="product-price">
-              <span>₹ {productPrice}</span>
+              <span>$ {productPrice}</span>
             </div>
           </div>
         </div>
