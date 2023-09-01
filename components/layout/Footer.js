@@ -60,45 +60,6 @@ const Footer = () => {
                                     />
                                 </a>
                             </div>
-                                    {/* <ul className="contact-infor">
-                                        <li>
-                                            <img
-                                                src="/imgs/theme/icons/icon-location.svg"
-                                                alt=""
-                                            />
-                                            <strong>Address: </strong>{" "}
-                                            <span>
-                                                5171 W Campbell Ave undefined
-                                                Kent, Utah 53127 United States
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <img
-                                                src="/assets/imgs/theme/icons/icon-contact.svg"
-                                                alt=""
-                                            />
-                                            <strong>Call Us:</strong>
-                                            <span>(+91) - 540-025-124553</span>
-                                        </li>
-                                        <li>
-                                            <img
-                                                src="/assets/imgs/theme/icons/icon-email-2.svg"
-                                                alt=""
-                                            />
-                                            <strong>Email:</strong>
-                                            <span>sale@Nest.com</span>
-                                        </li>
-                                        <li>
-                                            <img
-                                                src="/assets/imgs/theme/icons/icon-clock.svg"
-                                                alt=""
-                                            />
-                                            <strong>Hours:</strong>
-                                            <span>
-                                                10:00 - 18:00, Mon - Sat
-                                            </span>
-                                        </li>
-                                    </ul> */}
                                 </div>
                             </div>
                             <div
@@ -108,19 +69,19 @@ const Footer = () => {
                                 <h4 className="widget-title">Quick Links</h4>
                                 <ul className="footer-list  mb-sm-5 mb-md-0">
                                     <li>
-                                        <a href="#">Why Buy From Us?</a>
+                                        <a href="/book-a-virtual-appointment">Book An Appointment</a>
                                     </li>
                                     <li>
-                                        <a href="#">Our Certifications</a>
+                                        <a href="/bespoke">Bespoke</a>
                                     </li>
                                     <li>
-                                        <a href="#">Press Room</a>
+                                        <a href="/about-us">About us</a>
                                     </li>
                                     <li>
-                                        <a href="#">Testimonials</a>
+                                        <a href="/policy">Policies</a>
                                     </li>
                                     <li>
-                                        <a href="#">Corporate Gifting</a>
+                                        <a href="terms-and-conditions">Terms & Conditions</a>
                                     </li>
                                     
                                 </ul>
@@ -129,20 +90,18 @@ const Footer = () => {
                                 className="footer-link-widget col  wow animate__animated animate__fadeInUp"
                                 data-wow-delay=".2s"
                             >
-                                <h4 className="widget-title ">Policies</h4>
+                                <h4 className="widget-title ">Quick Links</h4>
                                 <ul className="footer-list  mb-sm-5 mb-md-0">
                                     <li>
-                                        <a href="#">30-Day Returns</a>
+                                        <a href="/ring-size">Ring Size Guide</a>
                                     </li>
                                     <li>
-                                        <a href="#">Lifetime Exchange & Buy back</a>
+                                        <a href="/bangle-size">Bangle Size Guide</a>
                                     </li>
                                     <li>
-                                        <a href="#">Privacy Policy</a>
+                                        <a href="/contact-us">Contact Us</a>
                                     </li>
-                                    <li>
-                                        <a href="#">Terms & Conditions</a>
-                                    </li>
+                                   
                                 </ul>
                             </div>
                             <div
@@ -206,64 +165,6 @@ const Footer = () => {
                                 All rights reserved
                             </p>
                         </div>
-                        {/* <div className="col-xl-4 col-lg-6 text-center d-none d-xl-block">
-                            <div className="hotline d-lg-inline-flex mr-30">
-                                <img
-                                    src="/assets/imgs/theme/icons/phone-call.svg"
-                                    alt="hotline"
-                                />
-                                <p>
-                                    1900 - 6666<span>Working 8:00 - 22:00</span>
-                                </p>
-                            </div>
-                            <div className="hotline d-lg-inline-flex">
-                                <img
-                                    src="/assets/imgs/theme/icons/phone-call.svg"
-                                    alt="hotline"
-                                />
-                                <p>
-                                    1900 - 8888<span>24/7 Support Center</span>
-                                </p>
-                            </div>
-                        </div>
-                        <div className="col-xl-4 col-lg-6 col-md-6 text-end d-none d-md-block">
-                            <div className="jab-mobile-social-icon">
-                                <h6>Follow Us</h6>
-                                <a href="#">
-                                    <img
-                                        src="/assets/imgs/theme/icons/icon-facebook-white.svg"
-                                        alt=""
-                                    />
-                                </a>
-                                <a href="#">
-                                    <img
-                                        src="/assets/imgs/theme/icons/icon-twitter-white.svg"
-                                        alt=""
-                                    />
-                                </a>
-                                <a href="#">
-                                    <img
-                                        src="/assets/imgs/theme/icons/icon-instagram-white.svg"
-                                        alt=""
-                                    />
-                                </a>
-                                <a href="#">
-                                    <img
-                                        src="/assets/imgs/theme/icons/icon-pinterest-white.svg"
-                                        alt=""
-                                    />
-                                </a>
-                                <a href="#">
-                                    <img
-                                        src="/assets/imgs/theme/icons/icon-youtube-white.svg"
-                                        alt=""
-                                    />
-                                </a>
-                            </div>
-                            <p className="font-sm">
-                                Up to 15% discount on your first subscribe
-                            </p>
-                        </div> */}
                     </div>
                 </div>
             </footer>

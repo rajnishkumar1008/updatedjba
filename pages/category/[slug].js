@@ -102,6 +102,7 @@ const Slug = ({ slug, data ,categorybannerdata }) => {
             background: `url(${category_url}) no-repeat center top`,
             backgroundSize: "cover",
           }}>
+            
             <div className="row">
               <div className="col-lg-8">
                 <h1 className="header-h">{slug.charAt(0).toUpperCase() + slug.slice(1)}</h1>
