@@ -11,8 +11,8 @@ function CategoryHome({homecategory}) {
       <Image
       src={item.category_image_url}
       alt="Picture of the author"
-      width={290}
-      height={291}
+      width={309}
+      height={309}
     />
       </Link>
      </div>

@@ -58,7 +58,7 @@ const RelatedProductList = ({productName,productSlug,productprice,sku,frontImg,b
           <div className="product-category">
           </div>
           <h2>
-            <a href={`/products/${productSlug}`}>
+          <a href={`/products/${productSlug}`}>
                {productName} 
             </a>
           </h2>

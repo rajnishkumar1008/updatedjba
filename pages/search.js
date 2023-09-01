@@ -184,7 +184,10 @@ const Index = (response={data}) => {
 
       },
       [selectedCategoryFilterItem,
-        
+        featured,
+        pricehighlow,
+        pricelowhigh,
+        newest,
         response.data.all_products]);
     
   return (
@@ -195,7 +198,10 @@ const Index = (response={data}) => {
       </Head>
       <section className="pt-40">
         <div className="container">
-          <div className="product-header">
+          <div className="product-header" style={{
+                    background: `url('/img/banner/product-header-bg.jpg') no-repeat center top`,
+                    backgroundSize: "cover",
+                  }}>
             <div className="row">
               <div className="col-lg-8">
                 <h1 className="header-h">Search for {router.query.q}</h1>

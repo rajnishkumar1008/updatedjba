@@ -25,7 +25,7 @@ const ProductDetailsnew = ({productData,relatedproduct,productreview,args,purity
   const[relatedProductData] = useState(relatedproduct);
   const[productreviewData] = useState(productreview);
   const [modal, setModal] = useState(false);
-
+  
   const Modaltoggles = () => setModal(!modal);
   const [open, setOpen] = useState("1");
   const toggle = (id) => {
@@ -138,7 +138,7 @@ const ProductDetailsnew = ({productData,relatedproduct,productreview,args,purity
                       <input type="text" className="form-control" name="name" placeholder="Enter Full Name" required/>
                       </div>
                       <div className="col-12">
-                      <input type="text" className="form-control"  pattern="[a-z0-9]+@[a-z]+\.[a-z]{2,3}" name="email" placeholder="Enter Email ID" required/>
+                      <input type="email" className="form-control"  pattern="/^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/" name="email" placeholder="Enter Email ID" required/>
                       </div>
                       <div className="col-12">
                       <input 

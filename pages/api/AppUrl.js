@@ -12,6 +12,7 @@ export class AppURL  {
     static productdetails = this.BaseURL+"/product/details/";
     static allpurity = this.BaseURL+"/all/purity";
     static allattribute = this.BaseURL+"/all/attribute";
-    static bycategory = this.BaseURL+"/category/"
+    static bycategory = this.BaseURL+"/category/";
+    static categorybanner = this.BaseURL+"/category/banner/";
 }
 export default AppURL;

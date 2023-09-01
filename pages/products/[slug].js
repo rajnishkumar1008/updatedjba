@@ -9,13 +9,15 @@ const Slug = ({slug,productdetailsdata,productrelatedcategorydata,puritydata,att
     const[productdetailData] = useState(productdetailsdata)
     const[purityData] = useState(puritydata);
     const[attributeData] = useState(attributedata) ;
-    const[product_name] = useState(productdetailsdata[0]['product_name'])
-    const[productRelatedData] = useState(productrelatedcategorydata)
+    const[product_name] = useState(productdetailsdata[0]['product_name']);
+    const[meta_description] = useState(productdetailData[0]['meta_description']);
+    const[productRelatedData] = useState(productrelatedcategorydata);
+    
     return (
         <>
            <Head>
-      <title>{product_name} | JBA</title>
-        <meta name="description" content="Loose Diamond Supplier, Manufacturer & Exporter from India" />
+         <title>{product_name} | JBA</title>
+         <meta name="description" content={meta_description} />
       </Head>
           <div className='page-header breadcrumb-wrap'>
                 <div className="container">
@@ -42,6 +44,7 @@ const Slug = ({slug,productdetailsdata,productrelatedcategorydata,puritydata,att
 export default Slug;
 export async function getServerSideProps(context) {
   try{
+    
     let slug = context.query.slug;
     const productdetailsres = await fetch(`${AppURL.productdetails}`+slug);
     const purityres = await fetch(`${AppURL.allpurity}`);
@@ -51,12 +54,12 @@ export async function getServerSideProps(context) {
     const productdetailsdata = await productdetailsres.json();
     const productlength =productdetailsdata.length;
     if(productlength >=1)
-  {
+    {
     const productcategory = productdetailsdata[0]['product_category'];
     const productrelatedcategoryres = await fetch(`${AppURL.bycategory}`+productcategory);
     const productrelatedcategorydata = await productrelatedcategoryres.json();
     return { props: { slug ,productdetailsdata,productrelatedcategorydata,puritydata,attributedata} };
-  }
+    }
   else{
     return{
       notFound:true,

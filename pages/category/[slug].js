@@ -6,13 +6,14 @@ import SingleProductShop from "../../components/ecommerce/SingleProductShop";
 import Head from "next/head";
 import { useEffect } from "react";
 import AppURL from "../api/AppUrl";
-const Slug = ({ slug, data }) => {
+const Slug = ({ slug, data ,categorybannerdata }) => {
   const [productbycategoryData] = useState(data);
   const [resProducts, setProducts] = useState(null);
   const [featured, setFeatured] = useState([]);
   const [pricehighlow, setPriceHighLow] = useState([]);
   const [pricelowhigh, setPriceLowHigh] = useState([]);
   const [newest, setNewest] = useState([]);
+  const[category_url] = useState(categorybannerdata[0]['category_banner_url']);
   const FeaturedHandler = (e) => {
     const { name } = e.target
     if (featured.includes(name)) {
@@ -97,7 +98,10 @@ const Slug = ({ slug, data }) => {
       </Head>
       <section className="pt-40">
         <div className="container">
-          <div className="product-header">
+          <div className="product-header" style={{
+            background: `url(${category_url}) no-repeat center top`,
+            backgroundSize: "cover",
+          }}>
             <div className="row">
               <div className="col-lg-8">
                 <h1 className="header-h">{slug.charAt(0).toUpperCase() + slug.slice(1)}</h1>
@@ -115,9 +119,9 @@ const Slug = ({ slug, data }) => {
                 <div className="jab-tags-filter">
                   <ul className="jab-tags-list">
                     <li className="hover-up">
-                      
-                        {slug.charAt(0).toUpperCase() + slug.slice(1)} <RiCloseCircleLine />
-                      
+
+                      {slug.charAt(0).toUpperCase() + slug.slice(1)} <RiCloseCircleLine />
+
                     </li>
 
                   </ul>
@@ -216,11 +220,13 @@ export default Slug;
 export const getServerSideProps = async (context) => {
   let slug = context.query.slug;
   try {
-    const res = await fetch(AppURL.productbycategory+slug.charAt(0).toUpperCase() + slug.slice(1).split("-").join(" "));
+    const res = await fetch(AppURL.productbycategory + slug.charAt(0).toUpperCase() + slug.slice(1).split("-").join(" "));
+    const categorybannerres = await fetch(AppURL.categorybanner + slug.charAt(0).toUpperCase() + slug.slice(1).split("-").join(" "));
     const data = await res.json();
+    const categorybannerdata = await categorybannerres.json();
     return {
       props: {
-        slug, data,
+        slug, data,categorybannerdata,
       },
     };
   } catch (err) {

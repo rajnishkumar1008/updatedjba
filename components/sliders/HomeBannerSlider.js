@@ -27,7 +27,7 @@ const HomeBannerSlider = ({banner}) => {
                         <Image
                         src={item.banner_url}
                         alt="Jews By Annu |Jewelery"
-                        width={1495}
+                        width={1600}
                         height={503}
                       />
                      </Link>
