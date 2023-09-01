@@ -118,7 +118,11 @@ const Index = (response={data}) => {
         );
           const check =  selectedCategoryFilterItem.length > 0 ||
           (volume[0] && volume[0] !== min) ||
-        (volume[1] && volume[1] !== max);
+        (volume[1] && volume[1] !== max)||
+        featured.length > 0 ||
+        pricehighlow.length > 0 ||
+        pricelowhigh.length > 0 ||
+        newest.length > 0;
           if (check) {
           const categoryQuery =
           selectedCategoryFilterItem.length > 0
