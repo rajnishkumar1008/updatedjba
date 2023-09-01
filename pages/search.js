@@ -154,17 +154,14 @@ const Index = (response={data}) => {
                   return `productnew=${value}`;
                 })
                 : [];
-              axios.request({
-                timeout: 2000,
-                method: "GET",
-                url: `${AppURL.searchproduct}?$${
+              axios.get(`${AppURL.searchproduct}?${
                   categoryString && categoryString
                   }${feturedproduct && feturedproduct}${
                      pricehigh && pricehigh
                   }${pricelow && pricelow}${
                   newestproducts && newestproducts
                  }`
-              })
+              )
               .then((res) => {
                 res.data && res.data.products.length > 0
               ? setProducts(res.data.products)
