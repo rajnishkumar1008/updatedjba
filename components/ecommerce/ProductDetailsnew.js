@@ -107,7 +107,7 @@ const ProductDetailsnew = ({productData,relatedproduct,productreview,args,purity
                     </div>
                     
                     <div className="jab-product-sigle-price">
-                      <span className="orginal-price">₹ {product_price}</span>
+                      <span className="orginal-price">$ {product_price}</span>
                     </div>
                     <div className="add-t-cart">
                       <a href="tel:1234567890">

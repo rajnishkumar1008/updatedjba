@@ -70,7 +70,7 @@ const FeaturedProductList = ({productName,productSlug,productprice,sku,frontImg,
             
           <div className="product-card-bottom">
             <div className="product-price">
-              <span>₹ {productprice}</span>
+              <span>$ {productprice}</span>
               
             </div>
             {/* <div className="add-cart">
