@@ -31,6 +31,8 @@ const Header = ({ toggleClick,categogry
                                         <img
                                             src="/img/themepic/jbalogo.png"
                                             alt="logo"
+                                            width="180"
+                                            height="40"
                                         />
                                    
                                 </Link>
