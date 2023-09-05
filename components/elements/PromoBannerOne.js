@@ -1,11 +1,12 @@
-import React from 'react';
+
+import Image from "next/image";
 
 const PromoBannerOne = () => {
     return (
         <>
         
         <a href="#">
-              <img src="/img/banner/dumm-abnner.png" alt="ik" />
+              <Image src="/img/banner/dumm-abnner.png" alt="ik" width={1920} height={219} />
              </a>
         </>
         

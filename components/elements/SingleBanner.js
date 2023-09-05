@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import React from 'react';
-Link
+import Image from "next/image";
+
 
 const SingleBanner = () => {
   return (
@@ -9,7 +9,7 @@ const SingleBanner = () => {
         <div className='row'>
           <div className='col-lg-12'>
           <div>
-      <Link href="/"><img src='/img/banner/single-bnner.png' alt='banner' /></Link>
+      <a href="/"><img src='/img/banner/single-bnner.png' alt='banner' /></a>
     </div>
           </div>
         </div>

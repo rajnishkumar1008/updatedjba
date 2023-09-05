@@ -20,6 +20,7 @@ const Footer = () => {
                                             <img
                                                 src="/img/themepic/jba-logo-white.png"
                                                 alt="logo"
+                                                width="249" height="40"
                                             />
                                          
                                         </Link>
@@ -29,36 +30,46 @@ const Footer = () => {
                                     </div>
                                     <div className="jab-mobile-social-icon">
                             
-                                <a href="#">
+                                <a href="https://www.facebook.com/jewelsbyanu/" target="_blank">
                                     <img
                                         src="/img/themepic/icons/icon-facebook-white.svg"
-                                        alt=""
+                                        alt="icons"
+                                        width="30" 
+                                        height="30"
                                     />
                                 </a>
-                                <a href="#">
+                                {/* <a href="#" target="_blank">
                                     <img
                                         src="/img/themepic/icons/icon-twitter-white.svg"
-                                        alt=""
+                                        alt="icons"
+                                        width="30" 
+                                        height="30"
                                     />
-                                </a>
-                                <a href="#">
+                                </a> */}
+                                <a href="https://www.instagram.com/jewelsbyanu/" target="_blank">
                                     <img
                                         src="/img/themepic/icons/icon-instagram-white.svg"
-                                        alt=""
+                                        alt="icons"
+                                        width="30" 
+                                        height="30"
                                     />
                                 </a>
-                                <a href="#">
+                                <a href="https://in.pinterest.com/Jewels_by_anu/" target="_blank">
                                     <img
                                         src="/img/themepic/icons/icon-pinterest-white.svg"
-                                        alt=""
+                                        alt="icons"
+                                        width="30" 
+                                        height="30"
                                     />
                                 </a>
-                                <a href="#">
+                                {/* <a href="#" target="_blank">
                                     <img
                                         src="/img/themepic/icons/icon-youtube-white.svg"
-                                        alt=""
+                                        alt="icons"
+                                        width="30" 
+                                        height="30"
                                     />
-                                </a>
+                                </a> */}
                             </div>
                                 </div>
                             </div>
