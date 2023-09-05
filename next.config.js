@@ -4,7 +4,8 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: [`${hostname}`]
+    domains: [`${hostname}`],
+    formats: ['image/avif', 'image/webp']
   },
   env:{
     NEXT_PUBLIC_BACKEND_URL:'https://neweb.mailgemsroot.com'
