@@ -10,9 +10,9 @@ const Footer = () => {
                 <section className="section-padding footer-mid">
                     <div className="container pt-15 pb-20">
                         <div className="row">
-                            <div className="col">
+                            <div className="col-md-3">
                                 <div
-                                    className="widget-about font-md mb-md-3 mb-lg-3 mb-xl-0  wow animate__animated animate__fadeInUp"
+                                    className="widget-about font-md mb-md-3 mb-lg-3 mb-xl-0"
                                     data-wow-delay="0"
                                 >
                                     <div className="logo  mb-30">
@@ -74,8 +74,7 @@ const Footer = () => {
                                 </div>
                             </div>
                             <div
-                                className="footer-link-widget col  wow animate__animated animate__fadeInUp"
-                                data-wow-delay=".1s"
+                                className="footer-link-widget col-md-3"
                             >
                                 <h4 className="widget-title">Quick Links</h4>
                                 <ul className="footer-list  mb-sm-5 mb-md-0">
@@ -98,8 +97,8 @@ const Footer = () => {
                                 </ul>
                             </div>
                             <div
-                                className="footer-link-widget col  wow animate__animated animate__fadeInUp"
-                                data-wow-delay=".2s"
+                                className="footer-link-widget col-md-3"
+                              
                             >
                                 <h4 className="widget-title ">Quick Links</h4>
                                 <ul className="footer-list  mb-sm-5 mb-md-0">
@@ -115,9 +114,9 @@ const Footer = () => {
                                    
                                 </ul>
                             </div>
-                            <div
-                                className="footer-link-widget col  wow animate__animated animate__fadeInUp"
-                                data-wow-delay=".3s"
+                            {/* <div
+                                className="footer-link-widget col-md-3"
+                              
                             >
                                 <h4 className="widget-title ">Jewelry Guide</h4>
                                 <ul className="footer-list  mb-sm-5 mb-md-0">
@@ -140,10 +139,10 @@ const Footer = () => {
                                         <a href="#">Jewellery Care Guide</a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> */}
                             <div
-                                className="footer-link-widget col  wow animate__animated animate__fadeInUp"
-                                data-wow-delay=".4s"
+                                className="footer-link-widget col-md-3"
+                              
                             >
                                 <h4 className="widget-title ">News Letter</h4>
                                
@@ -162,7 +161,7 @@ const Footer = () => {
                     </div>
                 </section>
                 <div
-                    className="container pb-30  wow animate__animated animate__fadeInUp"
+                    className="container pb-30"
                     data-wow-delay="0"
                 >
                     <div className="row align-items-center">
