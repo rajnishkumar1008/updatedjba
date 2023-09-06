@@ -61,7 +61,7 @@ const MobileMenu = ({ isToggled, toggleClick }) => {
                     <div className="mobile-header-content-area">
                        
                         <div className="mobile-menu-wrap mobile-header-border">
-                            <div className="main-categori-wrap mobile-header-border">
+                            {/* <div className="main-categori-wrap mobile-header-border">
                                 <Link href="#" className="categori-button-active-2">
                                     
                                         <span className="fi-rs-apps"></span> Browse
@@ -145,7 +145,7 @@ const MobileMenu = ({ isToggled, toggleClick }) => {
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> */}
 
                             <nav>
                                 <ul className="mobile-menu" ref={domNode}>
@@ -160,7 +160,7 @@ const MobileMenu = ({ isToggled, toggleClick }) => {
                                             className="menu-expand"
                                             onClick={() => handleToggle(1)}
                                         >
-                                            <i className="fi-rs-angle-small-down"></i>
+                                           <i className="bi bi-chevron-down"></i>
                                         </span>
                                         <Link href="">
                                             Home 
@@ -197,7 +197,7 @@ const MobileMenu = ({ isToggled, toggleClick }) => {
                                 </ul>
                             </nav>
                         </div>
-                        <div className="mobile-header-info-wrap mobile-header-border">
+                        {/* <div className="mobile-header-info-wrap mobile-header-border">
                             <div className="single-mobile-header-info mt-30">
                                 <Link href="">
                                      Our location  
@@ -213,8 +213,8 @@ const MobileMenu = ({ isToggled, toggleClick }) => {
                                      (+01) - 2345 - 6789 
                                 </Link>
                             </div>
-                        </div>
-                        <div className="mobile-social-icon">
+                        </div> */}
+                        {/* <div className="mobile-social-icon">
                             <h5 className="mb-15 text-grey-4">Follow Us</h5>
                             <Link href="#">
                                 
@@ -256,7 +256,7 @@ const MobileMenu = ({ isToggled, toggleClick }) => {
                                     />
                                
                             </Link>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
