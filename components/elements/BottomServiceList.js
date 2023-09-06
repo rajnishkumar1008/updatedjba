@@ -6,7 +6,7 @@ const BottomServiceList = () => {
         <div className="container">
             <div className="row">
              
-                <div className="col-lg-1-5 col-md-4 col-12 col-sm-6">
+                <div className="col-lg-1-5 col-md-1-5 col-6 col-sm-4">
                     <div
                         className="banner-left-icon d-flex align-items-center  wow animate__animated animate__fadeInUp"
                         data-wow-delay=".1s"
@@ -27,7 +27,7 @@ const BottomServiceList = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-lg-1-5 col-md-4 col-12 col-sm-6">
+                <div className="col-lg-1-5 col-md-1-5 col-6 col-sm-4">
                     <div
                         className="banner-left-icon d-flex align-items-center  wow animate__animated animate__fadeInUp"
                         data-wow-delay=".2s"
@@ -48,7 +48,7 @@ const BottomServiceList = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-lg-1-5 col-md-4 col-12 col-sm-6">
+                <div className="col-lg-1-5 col-md-1-5 col-6 col-sm-4">
                     <div
                         className="banner-left-icon d-flex align-items-center  wow animate__animated animate__fadeInUp"
                         data-wow-delay=".3s"
@@ -69,7 +69,7 @@ const BottomServiceList = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-lg-1-5 col-md-4 col-12 col-sm-6">
+                <div className="col-lg-1-5 col-md-1-5 col-6 col-sm-4">
                     <div
                         className="banner-left-icon d-flex align-items-center  wow animate__animated animate__fadeInUp"
                         data-wow-delay=".4s"
@@ -91,7 +91,7 @@ const BottomServiceList = () => {
                     </div>
                 </div>
                
-                <div className="col-lg-1-5 col-md-4 col-12 col-sm-6 mb-md-4 mb-xl-0">
+                <div className="col-lg-1-5 col-md-1-5 col-6 col-sm-4">
                     <div
                         className="banner-left-icon d-flex align-items-center  wow animate__animated animate__fadeInUp"
                         data-wow-delay="0"
