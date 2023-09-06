@@ -1,15 +1,19 @@
 import Link from "next/link";
 import Image from "next/image";
-import SwiperCore, { Navigation, Pagination } from "swiper";
+import SwiperCore, { Navigation, Pagination ,Autoplay, FreeMode } from "swiper";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-SwiperCore.use([Navigation, Pagination]);
+SwiperCore.use([Navigation, Pagination,Autoplay, FreeMode]);
 
 const HomeBannerSlider = ({banner}) => {
     return (
         <>
             <Swiper
+             autoplay={{
+                delay: 5000,
+                disableOnInteraction: false,
+              }}
                 slidesPerView={1}
                 spaceBetween={0}
                 
@@ -47,6 +51,7 @@ const HomeBannerSlider = ({banner}) => {
         </>
     );
 };
+
 
  
 
