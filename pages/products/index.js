@@ -5,6 +5,13 @@ import Head from "next/head";
 import ProductFilters from "./ProductFilters";
 import AppURL from "../api/AppUrl";
 const Index = (response = { data }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleFilter = () => {
+    setIsOpen(!isOpen);
+  };
+  const closeFilter = () => {
+    setIsOpen(false);
+  };
   const [categoriesFilter, setCategoriesFilter] = useState(null);
   const [resProducts, setProducts] = useState(null);
   const [selectedCategoryFilterItem, setSelectedCategoryFilterItem] = useState([]);
@@ -263,10 +270,60 @@ const Index = (response = { data }) => {
                   )
                 }
                 volumeHandler={(value) => volumeHandler(value)} />
+
+
+            {/*fliter sectio*/}
+                <div>
+                  <div className="fixed-filter">
+  
+<button className="filter-button" onClick={toggleFilter}>
+        Filter
+      </button>
+</div>
+<div className={`mobile-filter ${isOpen ? 'open' : ''}`}>
+
+      {isOpen && (
+        <div className="filter-options">
+         <ProductFilters categories={categoriesFilter}
+                categoryHandler={categoryHandler}
+                FeaturedHandler={FeaturedHandler}
+                HighLowHandler={HighLowHandler}
+                LowHighHandler={LowHighHandler}
+                NewestHandler={NewestHandler}
+                volume={volume}
+                priceMax={
+                  resProducts &&
+                  Math.max(
+                    ...resProducts.map((item) =>
+                      parseInt(item.product_price)
+                    )
+                  )
+                }
+                priceMin={
+                  resProducts &&
+                  Math.min(
+                    ...resProducts.map((item) =>
+                      parseInt(item.product_price)
+                    )
+                  )
+                }
+                volumeHandler={(value) => volumeHandler(value)} />
+        </div>
+      )}
+      {isOpen && (
+        <button className="close-button" onClick={closeFilter}>
+          Close
+        </button>
+      )}
+    </div>
+                </div>
+   {/*fliter sectio*/}
+
             </div>
           </div>
         </div>
       </section>
+      
 
     </>
   );

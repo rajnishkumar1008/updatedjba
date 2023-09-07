@@ -11832,3 +11832,52 @@ footer .jab-mobile-social-icon {
 }
 
 }
+
+
+.mobile-filter {
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.mobile-filter.open {
+  transform: translateY(0);
+}
+
+.filter-options {
+  padding: 10px;
+  /* Add your styling for filter options */
+}
+
+.filter-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  /* Add your styling for the filter button */
+}
+.close-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #ff0000; /* Change to your desired close button color */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  /* Add your styling for the close button */
+}
+.fixed-filter {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 999;
+}
