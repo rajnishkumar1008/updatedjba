@@ -3,18 +3,18 @@ import axios from "axios";
 import SingleProductShop from "../../components/ecommerce/SingleProductShop";
 import Head from "next/head";
 import ProductFilters from "./ProductFilters";
+import ProductFiltersMobile from "./ProductFiltersMobile";
+import ProductFiltersShort from "./ProductFiltersShort";
 import AppURL from "../api/AppUrl";
+import Dropdown from "react-bootstrap/Dropdown";
+import Collapse from "react-bootstrap/Collapse";
 const Index = (response = { data }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleFilter = () => {
-    setIsOpen(!isOpen);
-  };
-  const closeFilter = () => {
-    setIsOpen(false);
-  };
+  const [open, setOpen] = useState(false);
   const [categoriesFilter, setCategoriesFilter] = useState(null);
   const [resProducts, setProducts] = useState(null);
-  const [selectedCategoryFilterItem, setSelectedCategoryFilterItem] = useState([]);
+  const [selectedCategoryFilterItem, setSelectedCategoryFilterItem] = useState(
+    []
+  );
   const [volume, setVolume] = useState([0, 0]);
   const volumeHandler = (value) => {
     setVolume(value);
@@ -24,7 +24,7 @@ const Index = (response = { data }) => {
   const [pricelowhigh, setPriceLowHigh] = useState([]);
   const [newest, setNewest] = useState([]);
   const FeaturedHandler = (e) => {
-    const { name } = e.target
+    const { name } = e.target;
     if (featured.includes(name)) {
       const newArr = featured.filter((like) => like !== name);
       setFeatured(newArr);
@@ -33,7 +33,7 @@ const Index = (response = { data }) => {
     }
   };
   const HighLowHandler = (e) => {
-    const { name } = e.target
+    const { name } = e.target;
     if (pricehighlow.includes(name)) {
       const newArr = pricehighlow.filter((like) => like !== name);
       setPriceHighLow(newArr);
@@ -42,7 +42,7 @@ const Index = (response = { data }) => {
     }
   };
   const LowHighHandler = (e) => {
-    const { name } = e.target
+    const { name } = e.target;
     if (pricelowhigh.includes(name)) {
       const newArr = pricelowhigh.filter((like) => like !== name);
       setPriceLowHigh(newArr);
@@ -87,23 +87,29 @@ const Index = (response = { data }) => {
   useEffect(() => {
     setCategoriesFilter(
       response.data &&
-      response.data.categories.length > 0 &&
-      response.data.categories.map((item) => {
-        return {
-          ...item,
-          selected: false,
-        };
-      })
+        response.data.categories.length > 0 &&
+        response.data.categories.map((item) => {
+          return {
+            ...item,
+            selected: false,
+          };
+        })
     );
-    const min = response.data &&
+    const min =
+      response.data &&
       response.data.all_products &&
       Math.min(
-        ...response.data.all_products.map((item) => parseInt(item.product_price))
+        ...response.data.all_products.map((item) =>
+          parseInt(item.product_price)
+        )
       );
-    const max = response.data &&
+    const max =
+      response.data &&
       response.data.all_products &&
       Math.max(
-        ...response.data.all_products.map((item) => parseInt(item.product_price))
+        ...response.data.all_products.map((item) =>
+          parseInt(item.product_price)
+        )
       );
     const volumeArr = [min, max];
     setVolume(volumeArr);
@@ -113,14 +119,19 @@ const Index = (response = { data }) => {
       const min =
         response.data &&
         Math.min(
-          ...response.data.all_products.map((item) => parseInt(item.product_price))
+          ...response.data.all_products.map((item) =>
+            parseInt(item.product_price)
+          )
         );
       const max =
         response.data &&
         Math.max(
-          ...response.data.all_products.map((item) => parseInt(item.product_price))
+          ...response.data.all_products.map((item) =>
+            parseInt(item.product_price)
+          )
         );
-      const check = selectedCategoryFilterItem.length > 0 ||
+      const check =
+        selectedCategoryFilterItem.length > 0 ||
         (volume[0] && volume[0] !== min) ||
         (volume[1] && volume[1] !== max) ||
         featured.length > 0 ||
@@ -131,81 +142,85 @@ const Index = (response = { data }) => {
         const categoryQuery =
           selectedCategoryFilterItem.length > 0
             ? selectedCategoryFilterItem.map((value) => {
-              return `categories[]=${value}`;
-            })
+                return `categories[]=${value}`;
+              })
             : [];
         const categoryString =
           categoryQuery.length > 0
             ? categoryQuery.map((value) => value + "&").join("")
             : "";
         const feturedproduct =
-          featured.length > 0 ?
-            featured.map((value) => {
-              return `featuredlist=${value}`;
-            })
+          featured.length > 0
+            ? featured.map((value) => {
+                return `featuredlist=${value}`;
+              })
             : [];
         const pricehigh =
           pricehighlow.length > 0
             ? pricehighlow.map((value) => {
-              return `pricehightolow=${value}`;
-            })
+                return `pricehightolow=${value}`;
+              })
             : [];
         const pricelow =
           pricelowhigh.length > 0
             ? pricelowhigh.map((value) => {
-              return `pricelowtohigh=${value}`;
-            })
+                return `pricelowtohigh=${value}`;
+              })
             : [];
         const newestproducts =
           newest.length > 0
             ? newest.map((value) => {
-              return `productnew=${value}`;
-            })
+                return `productnew=${value}`;
+              })
             : [];
-           axios .get(`${AppURL.productlistfilter}?${
-            categoryString && categoryString
-            }${feturedproduct && feturedproduct}${
-               pricehigh && pricehigh
-            }${pricelow && pricelow}${
-            newestproducts && newestproducts
-           }`
-           )
-                .then((res) => {
-                setProducts(res.data.products);
-                })
-                .catch((err) => {
-                console.log(err);
-              });
-      }
-      else {
+        axios
+          .get(
+            `${AppURL.productlistfilter}?${categoryString && categoryString}${
+              feturedproduct && feturedproduct
+            }${pricehigh && pricehigh}${pricelow && pricelow}${
+              newestproducts && newestproducts
+            }`
+          )
+          .then((res) => {
+            setProducts(res.data.products);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } else {
         setProducts(response.data.all_products);
       }
-    }
-    else {
+    } else {
       return;
     }
-
-  },
-    [selectedCategoryFilterItem,
-      featured,
-      pricehighlow,
-      pricelowhigh,
-      newest,
-      volume,
-      response.data.all_products]);
+  }, [
+    selectedCategoryFilterItem,
+    featured,
+    pricehighlow,
+    pricelowhigh,
+    newest,
+    volume,
+    response.data.all_products,
+  ]);
 
   return (
     <>
       <Head>
         <title>Products | JBA</title>
-        <meta name="description" content="Loose Diamond Supplier, Manufacturer & Exporter from India" />
+        <meta
+          name="description"
+          content="Loose Diamond Supplier, Manufacturer & Exporter from India"
+        />
       </Head>
       <section className="pt-40">
         <div className="container">
-          <div className="product-header"  style={{
-                    background: `url('/img/banner/product-header-bg.jpg') no-repeat center top`,
-                    backgroundSize: "cover",
-                  }}>
+          <div
+            className="product-header"
+            style={{
+              background: `url('/img/banner/product-header-bg.jpg') no-repeat center top`,
+              backgroundSize: "cover",
+            }}
+          >
             <div className="row">
               <div className="col-lg-8">
                 <h1 className="header-h">Products</h1>
@@ -215,38 +230,122 @@ const Index = (response = { data }) => {
         </div>
       </section>
 
-      <section className="pb">
+      {/* <section className="pb">
         <div className="container">
           <div className="filter-bg">
             <div className="row">
               <div className="col-lg-12">
-                <div className="jab-tags-filter">
-                  
-                </div>
+                <div className="jab-tags-filter"></div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="pb-60 pt-20">
         <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="tg-fliter">
+                <div className="left">
+                  <button
+                    onClick={() => setOpen(!open)}
+                    aria-controls="filter-collapse-text"
+                    aria-expanded={open}
+                    className="btn  btn-success"
+                  >
+                    Filter By <i className="bi bi-funnel-fill"></i>
+                  </button>
+                  <Collapse in={open}>
+                    <div id="filter-collapse-text">
+                    <ProductFiltersMobile
+                        categories={categoriesFilter}
+                        categoryHandler={categoryHandler}
+                        volume={volume}
+                        priceMax={
+                          resProducts &&
+                          Math.max(
+                            ...resProducts.map((item) =>
+                              parseInt(item.product_price)
+                            )
+                          )
+                        }
+                        priceMin={
+                          resProducts &&
+                          Math.min(
+                            ...resProducts.map((item) =>
+                              parseInt(item.product_price)
+                            )
+                          )
+                        }
+                        volumeHandler={(value) => volumeHandler(value)}
+                      />
+                    </div>
+                  </Collapse>
+                </div>
+                <div className="right">
+                  <Dropdown>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    Sort By
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                      <ProductFiltersShort
+                        FeaturedHandler={FeaturedHandler}
+                        HighLowHandler={HighLowHandler}
+                        LowHighHandler={LowHighHandler}
+                        NewestHandler={NewestHandler}
+                        volume={volume}
+                        priceMax={
+                          resProducts &&
+                          Math.max(
+                            ...resProducts.map((item) =>
+                              parseInt(item.product_price)
+                            )
+                          )
+                        }
+                        priceMin={
+                          resProducts &&
+                          Math.min(
+                            ...resProducts.map((item) =>
+                              parseInt(item.product_price)
+                            )
+                          )
+                        }
+                        volumeHandler={(value) => volumeHandler(value)}
+                      />
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="row flex-row-reverse">
             <div className="col-xl-9 col-lg-8">
               <div className="list-of-products-p ">
                 <div className="row">
-                  {resProducts && resProducts.length >= 0 && (
+                  {resProducts &&
+                    resProducts.length >= 0 &&
                     resProducts.map((productItem, i) => (
                       <div className="col-lg-4" key={i}>
-                        <SingleProductShop productName={productItem.product_name} productSlug={productItem.product_slug} sku={productItem.product_sku_id} productPrice={productItem.product_price} productFrontImage={productItem.product_front_image_url} productBackImage={productItem.product_back_image_url} />
+                        <SingleProductShop
+                          productName={productItem.product_name}
+                          productSlug={productItem.product_slug}
+                          sku={productItem.product_sku_id}
+                          productPrice={productItem.product_price}
+                          productFrontImage={
+                            productItem.product_front_image_url
+                          }
+                          productBackImage={productItem.product_back_image_url}
+                        />
                       </div>
-                    ))
-                  )}
+                    ))}
                 </div>
               </div>
             </div>
-            <div className="col-xl-3 col-lg-4">
-              <ProductFilters categories={categoriesFilter}
+            <div className="col-xl-3 col-lg-4 d-none-mob">
+              <ProductFilters
+                categories={categoriesFilter}
                 categoryHandler={categoryHandler}
                 FeaturedHandler={FeaturedHandler}
                 HighLowHandler={HighLowHandler}
@@ -256,75 +355,21 @@ const Index = (response = { data }) => {
                 priceMax={
                   resProducts &&
                   Math.max(
-                    ...resProducts.map((item) =>
-                      parseInt(item.product_price)
-                    )
+                    ...resProducts.map((item) => parseInt(item.product_price))
                   )
                 }
                 priceMin={
                   resProducts &&
                   Math.min(
-                    ...resProducts.map((item) =>
-                      parseInt(item.product_price)
-                    )
+                    ...resProducts.map((item) => parseInt(item.product_price))
                   )
                 }
-                volumeHandler={(value) => volumeHandler(value)} />
-
-
-            {/*fliter sectio*/}
-                <div>
-                  <div className="fixed-filter">
-  
-<button className="filter-button" onClick={toggleFilter}>
-        Filter
-      </button>
-</div>
-<div className={`mobile-filter ${isOpen ? 'open' : ''}`}>
-
-      {isOpen && (
-        <div className="filter-options">
-         <ProductFilters categories={categoriesFilter}
-                categoryHandler={categoryHandler}
-                FeaturedHandler={FeaturedHandler}
-                HighLowHandler={HighLowHandler}
-                LowHighHandler={LowHighHandler}
-                NewestHandler={NewestHandler}
-                volume={volume}
-                priceMax={
-                  resProducts &&
-                  Math.max(
-                    ...resProducts.map((item) =>
-                      parseInt(item.product_price)
-                    )
-                  )
-                }
-                priceMin={
-                  resProducts &&
-                  Math.min(
-                    ...resProducts.map((item) =>
-                      parseInt(item.product_price)
-                    )
-                  )
-                }
-                volumeHandler={(value) => volumeHandler(value)} />
-        </div>
-      )}
-      {isOpen && (
-        <button className="close-button" onClick={closeFilter}>
-          Close
-        </button>
-      )}
-    </div>
-                </div>
-   {/*fliter sectio*/}
-
+                volumeHandler={(value) => volumeHandler(value)}
+              />
             </div>
           </div>
         </div>
       </section>
-      
-
     </>
   );
 };
