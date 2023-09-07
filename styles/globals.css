@@ -11761,14 +11761,17 @@ background-position-x: 0%;
   position: relative;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+}
+.tg-ff{
+  margin-bottom:15px
 }
 .tg-fliter .right .btn, .tg-fliter .left .btn {
   padding: 5px 20px;
   font-size: 14px;
 }
 #filter-collapse-text{
-  
+
 }
 }
 @media (max-width:768px){

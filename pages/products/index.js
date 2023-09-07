@@ -256,32 +256,7 @@ const Index = (response = { data }) => {
                   >
                     Filter By <i className="bi bi-funnel-fill"></i>
                   </button>
-                  <Collapse in={open}>
-                    <div id="filter-collapse-text">
-                    <ProductFiltersMobile
-                        categories={categoriesFilter}
-                        categoryHandler={categoryHandler}
-                        volume={volume}
-                        priceMax={
-                          resProducts &&
-                          Math.max(
-                            ...resProducts.map((item) =>
-                              parseInt(item.product_price)
-                            )
-                          )
-                        }
-                        priceMin={
-                          resProducts &&
-                          Math.min(
-                            ...resProducts.map((item) =>
-                              parseInt(item.product_price)
-                            )
-                          )
-                        }
-                        volumeHandler={(value) => volumeHandler(value)}
-                      />
-                    </div>
-                  </Collapse>
+                 
                 </div>
                 <div className="right">
                   <Dropdown>
@@ -317,6 +292,34 @@ const Index = (response = { data }) => {
                     </Dropdown.Menu>
                   </Dropdown>
                 </div>
+              </div>
+              <div className="tg-ff">
+              <Collapse in={open}>
+                    <div id="filter-collapse-text">
+                    <ProductFiltersMobile
+                        categories={categoriesFilter}
+                        categoryHandler={categoryHandler}
+                        volume={volume}
+                        priceMax={
+                          resProducts &&
+                          Math.max(
+                            ...resProducts.map((item) =>
+                              parseInt(item.product_price)
+                            )
+                          )
+                        }
+                        priceMin={
+                          resProducts &&
+                          Math.min(
+                            ...resProducts.map((item) =>
+                              parseInt(item.product_price)
+                            )
+                          )
+                        }
+                        volumeHandler={(value) => volumeHandler(value)}
+                      />
+                    </div>
+                  </Collapse>
               </div>
             </div>
           </div>
