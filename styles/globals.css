@@ -1913,7 +1913,7 @@ table .product-thumbnail img {
   position: relative;
   background-color: #fff;
   overflow: hidden;
-  max-height: 320px;
+  /* max-height: 320px; */
   /* padding: 25px 25px 0 25px; */
 }
 
