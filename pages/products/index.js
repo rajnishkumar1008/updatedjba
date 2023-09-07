@@ -9,6 +9,36 @@ import AppURL from "../api/AppUrl";
 import Dropdown from "react-bootstrap/Dropdown";
 import Collapse from "react-bootstrap/Collapse";
 const Index = (response = { data }) => {
+  const [showItems, setShowItems] = useState(6);
+  const [loadedItems, setLoadedItems] = useState(6);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const handleToggle = (index) => {
+    setShowItems((prevShowItems) => {
+      if (prevShowItems === index + 1) {
+        return null; // Close the clicked item
+      } else {
+        return index + 1; // Open the clicked item
+      }
+    });
+  };
+
+  const handleLoadMore = () => {
+    setIsAnimating(true);
+    setTimeout(() => {
+      setLoadedItems((prevLoadedItems) => prevLoadedItems + 6);
+      setIsAnimating(false);
+    }, 300);
+  };
+
+  useEffect(() => {
+    setShowItems(loadedItems);
+  }, [loadedItems]);
+
+
+
+
+
+
   const [open, setOpen] = useState(false);
   const [categoriesFilter, setCategoriesFilter] = useState(null);
   const [resProducts, setProducts] = useState(null);
@@ -87,13 +117,13 @@ const Index = (response = { data }) => {
   useEffect(() => {
     setCategoriesFilter(
       response.data &&
-        response.data.categories.length > 0 &&
-        response.data.categories.map((item) => {
-          return {
-            ...item,
-            selected: false,
-          };
-        })
+      response.data.categories.length > 0 &&
+      response.data.categories.map((item) => {
+        return {
+          ...item,
+          selected: false,
+        };
+      })
     );
     const min =
       response.data &&
@@ -142,8 +172,8 @@ const Index = (response = { data }) => {
         const categoryQuery =
           selectedCategoryFilterItem.length > 0
             ? selectedCategoryFilterItem.map((value) => {
-                return `categories[]=${value}`;
-              })
+              return `categories[]=${value}`;
+            })
             : [];
         const categoryString =
           categoryQuery.length > 0
@@ -152,33 +182,31 @@ const Index = (response = { data }) => {
         const feturedproduct =
           featured.length > 0
             ? featured.map((value) => {
-                return `featuredlist=${value}`;
-              })
+              return `featuredlist=${value}`;
+            })
             : [];
         const pricehigh =
           pricehighlow.length > 0
             ? pricehighlow.map((value) => {
-                return `pricehightolow=${value}`;
-              })
+              return `pricehightolow=${value}`;
+            })
             : [];
         const pricelow =
           pricelowhigh.length > 0
             ? pricelowhigh.map((value) => {
-                return `pricelowtohigh=${value}`;
-              })
+              return `pricelowtohigh=${value}`;
+            })
             : [];
         const newestproducts =
           newest.length > 0
             ? newest.map((value) => {
-                return `productnew=${value}`;
-              })
+              return `productnew=${value}`;
+            })
             : [];
         axios
           .get(
-            `${AppURL.productlistfilter}?${categoryString && categoryString}${
-              feturedproduct && feturedproduct
-            }${pricehigh && pricehigh}${pricelow && pricelow}${
-              newestproducts && newestproducts
+            `${AppURL.productlistfilter}?${categoryString && categoryString}${feturedproduct && feturedproduct
+            }${pricehigh && pricehigh}${pricelow && pricelow}${newestproducts && newestproducts
             }`
           )
           .then((res) => {
@@ -256,12 +284,12 @@ const Index = (response = { data }) => {
                   >
                     Filter By <i className="bi bi-funnel-fill"></i>
                   </button>
-                 
+
                 </div>
                 <div className="right">
                   <Dropdown>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">
-                    Sort By
+                      Sort By
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
@@ -294,32 +322,32 @@ const Index = (response = { data }) => {
                 </div>
               </div>
               <div className="tg-ff">
-              <Collapse in={open}>
-                    <div id="filter-collapse-text">
+                <Collapse in={open}>
+                  <div id="filter-collapse-text">
                     <ProductFiltersMobile
-                        categories={categoriesFilter}
-                        categoryHandler={categoryHandler}
-                        volume={volume}
-                        priceMax={
-                          resProducts &&
-                          Math.max(
-                            ...resProducts.map((item) =>
-                              parseInt(item.product_price)
-                            )
+                      categories={categoriesFilter}
+                      categoryHandler={categoryHandler}
+                      volume={volume}
+                      priceMax={
+                        resProducts &&
+                        Math.max(
+                          ...resProducts.map((item) =>
+                            parseInt(item.product_price)
                           )
-                        }
-                        priceMin={
-                          resProducts &&
-                          Math.min(
-                            ...resProducts.map((item) =>
-                              parseInt(item.product_price)
-                            )
+                        )
+                      }
+                      priceMin={
+                        resProducts &&
+                        Math.min(
+                          ...resProducts.map((item) =>
+                            parseInt(item.product_price)
                           )
-                        }
-                        volumeHandler={(value) => volumeHandler(value)}
-                      />
-                    </div>
-                  </Collapse>
+                        )
+                      }
+                      volumeHandler={(value) => volumeHandler(value)}
+                    />
+                  </div>
+                </Collapse>
               </div>
             </div>
           </div>
@@ -327,10 +355,12 @@ const Index = (response = { data }) => {
             <div className="col-xl-9 col-lg-8">
               <div className="list-of-products-p ">
                 <div className="row">
+                  <div className={`row ${isAnimating ? 'animating' : ''}`}>
                   {resProducts &&
                     resProducts.length >= 0 &&
-                    resProducts.map((productItem, i) => (
-                      <div className="col-xxl-4 col-md-6 col-sm-6 col-6" key={i}>
+                    resProducts.slice(0, showItems).map((productItem, i) => (
+                      <div className={`col-xxl-4 col-md-6 col-sm-6 col-6 ${showItems === i + 1 ? 'open' : ''}`} key={i}>
+
                         <SingleProductShop
                           productName={productItem.product_name}
                           productSlug={productItem.product_slug}
@@ -341,8 +371,32 @@ const Index = (response = { data }) => {
                           }
                           productBackImage={productItem.product_back_image_url}
                         />
+                       
                       </div>
+  
+
                     ))}
+                     {/* <div>
+                   {showItems < resProducts.length && (
+                      <button
+                        className={`load-more-btn ${isAnimating ? 'hidden' : ''}`}
+                        onClick={handleLoadMore}
+                      >
+                        Load More
+                      </button>
+                    )}
+                   </div> */}
+                    <div className="loda-more-bt">
+                    <button
+                        className={`load-more-btn ${isAnimating ? 'hidden' : ''}`}
+                        onClick={handleLoadMore}
+                      >
+                        Load More
+                      </button>
+                    </div>
+                    </div>
+                   
+                  
                 </div>
               </div>
             </div>
