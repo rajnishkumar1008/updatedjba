@@ -13,11 +13,15 @@ const RelatedProduct = ({productrelatedData}) => {
             <Swiper
                 autoplay={{
                     delay: 2500,
-                    disableOnInteraction: false,
+                    disableOnInteraction: true,
                   }}
                   breakpoints={{
+                    0: {
+                      slidesPerView: 2,
+                      spaceBetween: 10,
+                    },
                     640: {
-                      slidesPerView: 1,
+                      slidesPerView: 2,
                       spaceBetween: 20,
                     },
                     768: {

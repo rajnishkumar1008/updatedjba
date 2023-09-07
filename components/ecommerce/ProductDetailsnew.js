@@ -64,7 +64,7 @@ const ProductDetailsnew = ({productData,relatedproduct,productreview,args,purity
   };
 
   return (
-    <section className="mt-50 mb-50">
+    <section className="mb-50">
       <div className="container">
         <div className="row flex-row-reverse">
           <div className="col-xl-10 col-lg-12 m-auto">
@@ -72,9 +72,9 @@ const ProductDetailsnew = ({productData,relatedproduct,productreview,args,purity
               <div className="row mb-50  mt-30">
                 <div className="col-md-5 col-sm-12 col-xs-12 mb-md-0 mb-sm-5">
                   <div className="detail-gallery sticky-top-product">
-                    <span className="zoom-icon">
+                    {/* <span className="zoom-icon">
                       <i className="bi bi-search"></i>
-                    </span>
+                    </span> */}
 
                     <div className="product-image-slider">
                       <ThumbSlider imageOne={product_front_image} imageTwo={product_back_image} productName={product_name}/>
