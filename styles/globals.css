@@ -11816,7 +11816,7 @@ display:none
   font-size: 32px;
 }
 .product-header-banner-2 {
-  padding: 60px 80px;
+  padding: 60px 40px;
 }
 .abot-sec {
   padding: 30px 0px;
@@ -11882,6 +11882,12 @@ display:none
   position: absolute;
   left: 20px;
   bottom: 20px;
+  width:80%
+}
+.inn-img img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
 }
 .img-grid-se .ineer-cont h3 {
   font-size: 20px;
