@@ -14,16 +14,16 @@ const NewArrivalProduct = ({newarrivaldata}) => {
             <Swiper
                 autoplay={{
                     delay: 2500,
-                    disableOnInteraction: false,
+                    disableOnInteraction: true,
                   }}
                   breakpoints={{
                     0:{
                       slidesPerView: 2,
-                      spaceBetween: 20,
+                      spaceBetween: 10,
                     },
                     640: {
                       slidesPerView: 2,
-                      spaceBetween: 20,
+                      spaceBetween: 10,
                     },
                     768: {
                       slidesPerView: 2,

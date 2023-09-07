@@ -11781,7 +11781,8 @@ background-position-x: 0%;
 }
 @media (max-width:768px){
   .product-cart-wrap .product-content-wrap h2{
-    font-size:16px
+    font-size:15px;
+    line-height: 1.3;
   }
   .product-rate-cover .ratings i{
     font-size: 14px;
@@ -11871,6 +11872,18 @@ footer .jab-mobile-social-icon {
 }
 .header-h {
   font-size: 36px;
+}
+.jba-product-action {
+  display:none
+}
+.slider-arrow{
+  display:none
+}
+.jba-action-cart {
+  padding: 0px 10px 5px;
+}
+.product-cart-wrap .product-content-wrap {
+  padding: 0 10px 10px 9px;
 }
 }
 @media (min-width:0px) and (max-width:600px){
