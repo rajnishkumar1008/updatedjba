@@ -9949,6 +9949,7 @@ padding-left: 15px
   display:block;
 }
 .tg-fliter .right .dropdown-menu.show {
+  display:block;
   width: 246px;
     padding: 0;
     border-radius: 0;
