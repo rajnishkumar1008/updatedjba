@@ -330,7 +330,7 @@ const Index = (response = { data }) => {
                   {resProducts &&
                     resProducts.length >= 0 &&
                     resProducts.map((productItem, i) => (
-                      <div className="col-lg-4" key={i}>
+                      <div className="col-xxl-4 col-md-6 col-sm-6 col-6" key={i}>
                         <SingleProductShop
                           productName={productItem.product_name}
                           productSlug={productItem.product_slug}

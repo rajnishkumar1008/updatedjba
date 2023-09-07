@@ -140,7 +140,7 @@ const Slug = ({ slug, data ,categorybannerdata }) => {
               <div className="list-of-products-p ">
                 <div className="row">
                   {resProducts && resProducts.map((item, i) => (
-                    <div className="col-lg-4" key={i}>
+                    <div className="col-xxl-4 col-md-6 col-sm-6 col-6" key={i}>
                       <SingleProductShop productName={item.product_name} productSlug={item.product_slug} sku={item.product_sku_id} productPrice={item.product_price} productFrontImage={item.product_front_image_url} productBackImage={item.product_back_image_url} />
                     </div>
                   ))}
