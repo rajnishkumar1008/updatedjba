@@ -9945,12 +9945,17 @@ padding-left: 15px
   background-color:#000;
   border-color: #000;
 }
+.tg-fliter .right{
+  display:block;
+  overflow:hidden
+}
 .tg-fliter .right .dropdown-menu.show {
   display: block;
     width: 246px;
     padding: 0;
     border-radius: 0;
 }
+
 /*sigle -product-details*/
 .prodcts-single-rating .jba-rating-product{
   display: flex;
