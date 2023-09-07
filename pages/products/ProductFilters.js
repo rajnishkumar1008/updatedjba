@@ -6,7 +6,7 @@ export default function ProductFilters({categories,
     categoryHandler,volume,priceMin,priceMax,volumeHandler,FeaturedHandler,HighLowHandler,LowHighHandler,NewestHandler}) {
   return (
     <div>
-      <div className="prodect-filter-wrper sticky-top">
+      <div className="prodect-filter-wrper sticky-top-product">
                 <div className="fliter-head">
                   <h3>Filter By</h3>
                 </div>

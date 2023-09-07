@@ -3,7 +3,7 @@ import { useState } from "react";
 import useClickOutside from "../../utils/outsideClick";
 
 
-const MobileMenu = ({ isToggled, toggleClick }) => {
+const MobileMenu = ({ isToggled, toggleClick, categogry }) => {
     const [isActive, setIsActive] = useState({
         status: false,
         key: "",
@@ -61,95 +61,12 @@ const MobileMenu = ({ isToggled, toggleClick }) => {
                     <div className="mobile-header-content-area">
                        
                         <div className="mobile-menu-wrap mobile-header-border">
-                            {/* <div className="main-categori-wrap mobile-header-border">
-                                <Link href="#" className="categori-button-active-2">
-                                    
-                                        <span className="fi-rs-apps"></span> Browse
-                                        Categories
-                                   
-                                </Link>
-                                <div className="categori-dropdown-wrap categori-dropdown-active-small">
-                                    <ul>
-                                        <li>
-                                           <Link href="/shop-grid-right">
-                                                 
-                                                    <i className="evara-font-dress"></i>
-                                                    Women's Clothing
-                                                 
-                                            </Link>
-                                        </li>
-                                        <li>
-                                           <Link href="">
-                                                 
-                                                    <i className="evara-font-tshirt"></i>
-                                                    Men's Clothing
-                                               
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            {" "}
-                                           <Link href="">
-                                                 
-                                                    <i className="evara-font-smartphone"></i>{" "}
-                                                    Cellphones
-                                                
-                                            </Link>
-                                        </li>
-                                        <li>
-                                           <Link href="">
-                                                
-                                                    <i className="evara-font-desktop"></i>
-                                                    Computer & Office
-                                                
-                                            </Link>
-                                        </li>
-                                        <li>
-                                           <Link href="">
-                                               
-                                                    <i className="evara-font-cpu"></i>
-                                                    Consumer Electronics
-                                                 
-                                            </Link>
-                                        </li>
-                                        <li>
-                                           <Link href="">
-                                                 
-                                                    <i className="evara-font-home"></i>
-                                                    Home & Garden
-                                                
-                                            </Link>
-                                        </li>
-                                        <li>
-                                           <Link href="">
-                                                 
-                                                    <i className="evara-font-high-heels"></i>
-                                                    Shoes
-                                                
-                                            </Link>
-                                        </li>
-                                        <li>
-                                           <Link href="">
-                                                 
-                                                    <i className="evara-font-teddy-bear"></i>
-                                                    Mother & Kids
-                                                 
-                                            </Link>
-                                        </li>
-                                        <li>
-                                           <Link href="">
-                                                 
-                                                    <i className="evara-font-kite"></i>
-                                                    Outdoor fun
-                                                
-                                            </Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div> */}
+                            
 
                             <nav>
                                 <ul className="mobile-menu" ref={domNode}>
-                                    <li
+                                <li><a href="/products/">Shop All</a></li>
+                                    {/* <li
                                         className={
                                             isActive.key == 1
                                                 ? "menu-item-has-children active"
@@ -179,8 +96,8 @@ const MobileMenu = ({ isToggled, toggleClick }) => {
                                             </li>
                                              
                                         </ul>
-                                    </li>
-                                    <li
+                                    </li> */}
+                                    {/* <li
                                         className={
                                             isActive.key == 2
                                                 ? "menu-item-has-children active"
@@ -193,7 +110,22 @@ const MobileMenu = ({ isToggled, toggleClick }) => {
                                         >
                                             <i className="fi-rs-angle-small-down"></i>
                                         </span>
-                                      </li> 
+                                      </li>  */}
+                                  
+                                      {categogry && categogry.map((item, i) => (
+                                                <li key={i} className={
+                                                    isActive.key == 2
+                                                        ? "menu-item-has-children active"
+                                                        : "menu-item-has-children"
+                                                }>
+                                                    <a href={`/category/${item.category_name}`.toLowerCase().split(" ").join("-")}>
+
+                                                        {item.category_name}
+                                                        <i className="fi-rs-angle-down"></i>
+
+                                                    </a>
+                                                </li>
+                                                 ))}
                                 </ul>
                             </nav>
                         </div>
