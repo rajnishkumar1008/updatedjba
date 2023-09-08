@@ -49,7 +49,7 @@ const Header = ({ toggleClick,categogry
                                         />
 
                                         <p>
-                                            987 654 3210<span>24/7 Support</span>
+                                       <a href="tel:+91 8059102341"> +91 805 910 2341</a><span>24/7 Support</span>
                                         </p>
                                     </div>
                                 </div>

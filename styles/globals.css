@@ -5743,7 +5743,7 @@ h6.post-title {
           box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-.jba-header .hotline p {
+.jba-header .hotline p a{
   color: #000000!important;
 }
 

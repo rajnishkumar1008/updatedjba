@@ -110,7 +110,7 @@ const ProductDetailsnew = ({productData,relatedproduct,productreview,args,purity
                       <span className="orginal-price">$ {product_price}</span>
                     </div>
                     <div className="add-t-cart">
-                      <a href="tel:1234567890">
+                      <a href="tel:+918059102341">
                       <button
                         className="btn btn-1"
                         type="button"
