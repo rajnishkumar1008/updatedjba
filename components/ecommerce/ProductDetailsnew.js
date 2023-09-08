@@ -138,7 +138,7 @@ const ProductDetailsnew = ({productData,relatedproduct,productreview,args,purity
                       <input type="text" className="form-control" name="name" placeholder="Enter Full Name" required/>
                       </div>
                       <div className="col-12">
-                      <input type="email" className="form-control"  pattern="/^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/" name="email" placeholder="Enter Email ID" required/>
+                      <input type="email" className="form-control"  name="email" placeholder="Enter Email ID" required/>
                       </div>
                       <div className="col-12">
                       <input 
@@ -156,7 +156,7 @@ const ProductDetailsnew = ({productData,relatedproduct,productreview,args,purity
                       </div>
                        <div className="col-6">
                       <select className="form-control" name="size">
-                      <option value="Choose an option">Please Select Option</option>
+                      <option value="Choose an option">Select Option</option>
                       {attribute && attribute.map((items,i)=>(
                       <option value={items.attribute_name} key={i}>{items.attribute_name}</option>
                       ))}
@@ -164,7 +164,7 @@ const ProductDetailsnew = ({productData,relatedproduct,productreview,args,purity
                        </div>
                        <div className="col-6" >
                        <select className="form-control" name="purity">
-                       <option value="Choose an option">Please Select Purity</option>
+                       <option value="Choose an option">Select Purity</option>
                        {purity && purity.map((item,i)=>(
                        <option value={item.purity_name} key={i}>{item.purity_name}</option> 
                        ))}
