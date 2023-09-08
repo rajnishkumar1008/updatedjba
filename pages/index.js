@@ -10,6 +10,7 @@ import PromoBannerThree from '../components/elements/PromoBannerThree';
 import PromoBannerFour from '../components/elements/PromoBannerFour';
 import BottomServiceList from '../components/elements/BottomServiceList';
 import AppURL from "./api/AppUrl";
+import CustomerReview from "@/components/elements/CustomerReview";
 
 
 export default function Home({bannerdata,homecategorydata, featuredproductdata,newarrivalproductdata}) {
@@ -126,6 +127,12 @@ export default function Home({bannerdata,homecategorydata, featuredproductdata,n
           </section>
 
           <BottomServiceList />
+
+           <section className="p-9">
+            <div className="container">
+              <CustomerReview />
+            </div>
+           </section>
 
 
         </div>
